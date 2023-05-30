@@ -1,0 +1,41 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+        //Most likely for this to work you'd start at [0], and try combos... 
+
+        List<List<Integer>> myAnswers = new ArrayList<>();
+        int i,l,j;
+        for ( i = 0; i<nums.length-2;i++){
+            int one = nums[i];
+            for ( l = i+1; l<nums.length-1;l++){
+                int two = nums[l];
+            
+                for ( j = l+1; j<nums.length; j++){
+                    if (l==j){
+                        continue;
+                    }
+                    int three = nums[j];
+                    if (one+two+three==0){
+                        List<Integer> insideAnswers = new ArrayList<Integer>();
+                        
+                        insideAnswers.add(one);
+                        insideAnswers.add(two);
+                        insideAnswers.add(three);
+
+                        Collections.sort(insideAnswers);
+                        myAnswers.add(insideAnswers);
+
+                    }
+                        
+                    }
+                }
+            }
+            // Throw the List back into a set to remove duplicates
+            //Set the list back
+            Set<List<Integer>> mySet = new HashSet<>(myAnswers);
+            myAnswers.clear();
+            myAnswers.addAll(mySet);
+            return myAnswers;
+        }
+
+    }
