@@ -1,0 +1,38 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        //By sorting; for the longer arrays, you can just compare the first prefix with the last to quickly ensure there is no common prefix.
+        Arrays.sort(strs);
+        
+
+        //empty array
+        if (strs.length==0 || strs[0] == null){
+           
+            return "";
+        }
+
+        
+
+        //This will cut down on test cases that are just filled with random words with no common
+        if (strs[0].length()>0){
+        String firstPrefix = strs[0].substring(0,1);
+        String lastPrefix = strs[strs.length-1].substring(0,1);
+            if (!firstPrefix.equals(lastPrefix)){
+             return ""; 
+            }
+        }
+
+
+        int substringStop=0;
+        //Also means that since it's sorted we only have to compare the first and last word
+        for (int i = 0; i<strs[0].length();i++){
+            String first=strs[0].substring(0,i+1);
+            String last = strs[strs.length-1].substring(0,i+1);
+            if (!first.equals(last)){
+                break;
+            }else {
+                substringStop++;
+            }
+        }
+        return strs[0].substring(0,substringStop);
+    }
+}
