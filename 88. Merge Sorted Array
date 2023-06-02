@@ -1,0 +1,11 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        //Add all the numbers into one array
+        for (int i = m; i<nums1.length;i++){
+            nums1[i]=nums2[n-1];
+            n--;
+        }
+        //Utilize array sorting methods to sort it.
+        Arrays.sort(nums1);
+    }
+}
