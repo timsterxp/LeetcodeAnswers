@@ -1,0 +1,19 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int numberRemoved = 0;
+
+        //Iterate array
+        for (int i = 0; i<nums.length; i++){
+
+            //Set val to 101 since its given that the max val is 100
+            if (nums[i]==val) {
+            nums[i]=101; 
+            numberRemoved++;
+            }
+        }
+        //sort array so all removed numbers are at the end
+        Arrays.sort(nums);
+
+        return nums.length-numberRemoved;
+    }
+}
