@@ -1,0 +1,14 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+
+        //Sets cannot have duplicates, so if the set size is smaller than nums
+        Set<Integer> mySet = new HashSet<>();
+        for (int i =0;i<nums.length;i++){
+            mySet.add(nums[i]);
+        }
+        System.out.println(mySet.size() + " " + nums.length);
+        if (mySet.size()!=nums.length) return true;
+        return false;
+    
+    }
+}
