@@ -1,0 +1,29 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int countLetters = 0;
+        boolean fakeSpace = true;
+        //Loop backwards
+        for (int i = s.length()-1; i>=0;i--){
+            //Check for empty spaces
+            while (fakeSpace){
+
+                if (s.charAt(i)==' '){
+                
+                }else {
+                    fakeSpace=false;
+                    break;
+                }
+                i--;
+            }
+            //When you find spaces after the fake spaces then end loop
+            if (s.charAt(i)==' '){
+                break;
+            }
+
+            //Debugging
+            System.out.println("Counting "+ s.charAt(i));
+            countLetters++;
+        }
+        return countLetters;
+    }
+}
