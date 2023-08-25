@@ -1,0 +1,16 @@
+class Solution {
+    public int strStr(String haystack, String needle) {
+        
+        // Base case, if it does not occur, then return -1
+        if (!haystack.contains(needle)){
+            return -1;
+        }
+
+        //utilize simple string method indexOf to find the first occurence of needle
+
+
+        //Other methods could include iterating through the string by the first letter to see if the startsWith is true.
+        return haystack.indexOf(needle);
+
+    }
+}
