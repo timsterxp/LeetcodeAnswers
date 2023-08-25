@@ -1,0 +1,22 @@
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        //Find the length of the smaller word
+        int smallestWord = Math.min (word1.length(),word2.length());
+        int index = 0 ;
+        String toReturn = "";
+
+        //Iterate through both words until one word runs out of letters
+        while (smallestWord>index){
+            toReturn+=word1.charAt(index);
+            toReturn+=word2.charAt(index);
+            index++;
+        }
+
+        //Append the remaining letters
+        toReturn+=word1.substring(smallestWord);
+        toReturn+=word2.substring(smallestWord);
+
+        //return
+        return toReturn;
+    }
+}
