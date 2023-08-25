@@ -1,0 +1,45 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+
+        
+        //If the last value is not 9 just increment it
+        if (digits[digits.length-1]!=9){
+            digits[digits.length-1]=digits[digits.length-1]+1;
+            return digits;
+        }else {
+            //Otherwise, recursively go through the array and increment it
+            return incrementEntireArray(digits,digits.length-1);
+        }
+
+    }
+
+    public int[] incrementEntireArray(int[] digits,int startHere){
+        if (startHere == 0 ){
+            if (digits[0]==9){
+                digits[0]=0;
+            //If the first number is a 9 then the array needs to be changed in size
+            int[] newArray = new int[digits.length+1];
+            newArray[0]=1;
+            for (int i = 1 ; i <digits.length-1;i++){
+                newArray[i]=digits[i-1];
+            }
+            return newArray;
+            }else {
+                digits[0]=digits[0]+1;
+                return digits;
+            }
+          
+        }
+        digits[startHere]=0;
+
+        if (digits[startHere-1]==9){
+            return incrementEntireArray(digits,startHere-1);
+        }else {
+            digits[startHere-1]=digits[startHere-1]+1;
+            return digits;
+        }
+        
+
+    }
+
+}
