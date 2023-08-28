@@ -1,0 +1,25 @@
+class Solution {
+    public int accountBalanceAfterPurchase(int purchaseAmount) {
+        int initialBalance = 100;
+        int[] multiples = new int[]{0,10,20,30,40,50,60,70,80,90,100};
+
+        int smallestMultiple = 200;
+        int smallestDifference = 200;
+        if (purchaseAmount%5==0){
+            purchaseAmount++;
+        }
+
+        for (int i = 0;i<multiples.length;i++){
+            System.out.println("Smallest Multiple is currently " + smallestMultiple + "Checking" +multiples[i]);
+            int testing = Math.abs(multiples[i]-purchaseAmount);
+            System.out.println("Subtracted " + testing);
+            if (Math.abs(multiples[i]-purchaseAmount)<smallestDifference){
+                System.out.println("Checking "+ multiples[i]);
+                smallestDifference = Math.abs(multiples[i]-purchaseAmount);
+                smallestMultiple = multiples[i];
+            }
+        }
+
+        return initialBalance-smallestMultiple;
+    }
+}
