@@ -1,0 +1,25 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        
+
+        int sizeOfArray = nums.length;
+
+        //Move the num array to a hashset to be able to quickly search the hashset
+        Set<Integer> findSets = new HashSet<Integer>();
+
+//If the missing number is not in the array itself that means its the size of the array due to array size -1 ;
+        int numToFind = sizeOfArray;
+
+        for (int value:nums){
+            findSets.add(value);
+        }
+
+//Iterate through the array, if it does not exist then it is the missin number
+        for (int i = 0;i<sizeOfArray;i++){
+            if (!findSets.contains(i)) numToFind=i;
+        }
+
+        return numToFind;
+
+    }
+}
