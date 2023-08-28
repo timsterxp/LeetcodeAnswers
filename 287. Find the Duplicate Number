@@ -1,0 +1,19 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+
+        Set findDup = new HashSet<Integer>();
+
+
+
+        //Place everything into a HashSet which has the method "Contains" so you can quickly see if a number is going to duplicated.
+        for (int i:nums){
+            if (findDup.contains(i)){
+                return i;
+            }else {
+                findDup.add(i);
+            }
+        }
+        return 0;
+        
+    }
+}
