@@ -1,0 +1,29 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+
+        //sort the array then since the majority is defined as n/2 
+        // check the value of the n/2-ith element + the current value 
+
+
+        //Check the sorted array
+
+        //Utillizing the Arrays method this is sorted 
+        int majority = nums.length/2;
+        Arrays.sort(nums);
+        int answer = nums[0];
+
+        //Iterate through the array, since it is sorted, if a value is majority then when you add the majority index it should also be the same number, otherwise, continue through.
+        for (int i = 0 ; i <nums.length; i++){
+            int currentVal = nums[i];
+            System.out.println("Checking if " + currentVal);
+            System.out.println("Number at majority index would be " + nums[i+majority]);
+            if (nums[i+majority]==currentVal) {answer=nums[i];
+            break;
+            }
+            
+
+        }
+        return answer;
+    }
+}
