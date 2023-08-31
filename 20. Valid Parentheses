@@ -1,0 +1,46 @@
+class Solution {
+    public boolean isValid(String s) {
+        String beg = "([{";
+        String end = ")]}";
+        int i = 0;
+        boolean valid = true;
+        String takenOff;
+        Stack<String> myStack = new Stack<String>();
+
+        if (s.length()%2==1){
+            return false;
+        }
+
+        // easiest way would be to create a queue, if it is in beg, then add it, if it is end then pop it
+        // confirm indexes for the "correct order/same type"
+        while (i<s.length()){
+
+            if (beg.contains(s.substring(0,1))){
+                System.out.println("Push on my stack " + s.substring(0,1));
+                myStack.push(s.substring(0,1));
+            }else {
+                int f = end.indexOf(s.substring(0,1));
+                System.out.println("Found " + s.substring(0,1) + "at "+ f);
+               if (!myStack.isEmpty()){
+               takenOff= myStack.pop();
+               }
+               else {
+                   return false;
+               }
+               int openRemove = beg.indexOf(takenOff);
+               System.out.println("Removed " + takenOff);
+               if (f!=openRemove){
+                   valid=false;
+                   break;
+               }
+            }
+            s=s.substring(1);
+            
+        }
+
+        if (!myStack.isEmpty()){
+            return false;
+        }
+        return valid;
+    }
+}
