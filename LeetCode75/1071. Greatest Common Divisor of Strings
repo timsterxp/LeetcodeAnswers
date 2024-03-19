@@ -1,0 +1,26 @@
+class Solution {
+    public String gcdOfStrings(String str1, String str2) {
+        
+        //Base case, the addition of both strings should give the same value if its totally divisible
+        if ((str1+str2).equals(str2+str1)){
+            
+        }else {
+            return "";
+        }
+
+        if (str1.equals(str2)){
+            return str1;
+        }
+
+        int highestGCD = 1;
+
+        for (int i = 1; i<str1.length()/2+1; i ++){
+            if (str2.contains(str1.substring(0,i))){
+                if (str1.length()%str1.substring(0,i).length()==0 && str2.length() % str1.substring(0,i).length()==0){
+                 highestGCD=i;
+                 }
+            }
+        }
+        return str1.substring(0,highestGCD);
+    }
+}
