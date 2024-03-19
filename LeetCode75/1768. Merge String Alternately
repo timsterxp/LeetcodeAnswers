@@ -1,0 +1,21 @@
+class Solution {
+    public String mergeAlternately(String word1, String word2) {
+        String newWord = "";
+        for (int i = 0; i<word1.length(); i++){
+            newWord+=word1.charAt(i);
+            if (i==word1.length()-1){
+               if (word1.length()!=word2.length()){
+                newWord+=word2.substring(i);
+                break;
+                }
+                }
+            if (i<word2.length()){
+                newWord+=word2.charAt(i);
+            }else {
+                newWord+=word1.substring(i+1);
+                break;
+            }
+        }
+        return newWord;
+    }
+}
